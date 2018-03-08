@@ -37,14 +37,17 @@ class Example(QtGui.QWidget):
         self.btn=QtGui.QPushButton("R",self)
         self.btn.resize(50,50)
         self.btn.move(100,50)
+        self.btn.setStyleSheet("QPushButton { background-color: white }""QPushButton:pressed { background-color: lightgreen }" )
         
         self.btn1=QtGui.QPushButton("P",self)
         self.btn1.resize(50,50)
         self.btn1.move(200,50)
-        
+        self.btn1.setStyleSheet("QPushButton { background-color: white }""QPushButton:pressed { background-color: lightgreen }" )
+   
         self.btn2=QtGui.QPushButton("CALCULATE",self)
-        self.btn2.resize(50,50)
-        self.btn2.move(400,50)
+        self.btn2.resize(100,50)
+        self.btn2.move(500,20)
+        self.btn2.setStyleSheet("QPushButton { background-color: white }""QPushButton:pressed { background-color: lightgreen }" )
         self.show()
 
     def initUI(self):                       
@@ -65,12 +68,18 @@ class Example(QtGui.QWidget):
 
     def paintEvent(self, event):
         painter = QtGui.QPainter(self)
-        pixmap = QtGui.QPixmap("Task3.png")
+        pixmap = QtGui.QPixmap("T_L.png")
         painter.drawPixmap(10, 100,772,248, pixmap)
 #        painter.drawPixmap(self,10, pixmap)
         pen = QtGui.QPen(QtCore.Qt.blue, 3)
         painter.setPen(pen)
         painter.drawLine(self.X2,self.Y2, self.X_Coordinate , self.Y2)
+        
+        pen2 = QtGui.QPen(QtCore.Qt.green, 3)
+        pen2.setStyle(QtCore.Qt.DashLine)
+        painter.setPen(pen2)
+        painter.drawLine(self.X_Coordinate, self.Y2, self.X_Coordinate, 100)
+        painter.drawLine(self.X_Coordinate, self.Y2, self.X_Coordinate, 400)
         #Change the coordinate to the one required
 
 
